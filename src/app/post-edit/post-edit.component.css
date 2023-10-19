@@ -1,0 +1,8 @@
+p{
+    color: rgb(68, 68, 68);
+    font-size: large
+}
+
+input.ng-invalid{
+    border: 1px solid #e70b0b;
+}
