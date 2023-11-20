@@ -1,6 +1,10 @@
-p{
-    color: rgb(68, 68, 68);
-    font-size: large
+p {
+  color: rgb(68, 68, 68);
+  font-size: large;
+}
+
+.post-box {
+  margin-bottom: 20px; /* Add some space between posts */
 }
 
 /* post.component.css */
@@ -51,22 +55,20 @@ p{
     /* Add any other styles you desire for the comment text */
   }
   
-  .reaction-button-container {
-    position: relative;
-    display: inline-block;
+  .facebook-like-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust as needed to center vertically */
   }
   
-  .reaction-popup {
-    position: absolute;
-    top: -150%; /* Adjust this value to control the vertical position */
-    left: 0;
-    background: white;
+  .post-container {
+    width: 70%; /* Adjust the width as needed */
     border: 1px solid #ccc;
-    padding: 10px;
-    display: none;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
   }
   
-  .reaction-popup.active {
-    display: block;
-  }
+  
   

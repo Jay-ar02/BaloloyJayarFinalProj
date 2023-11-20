@@ -9,6 +9,7 @@ import { PostComponent } from './post/post.component';
 import { PostEditComponent } from './post-edit/post-edit.component';
 import { PostListComponent } from './post-list/post-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   { path: 'post-list', component: PostListComponent },
@@ -30,7 +31,8 @@ const routes: Routes = [
     BrowserModule,
     RouterModule.forRoot(routes),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
 
   ],
   providers: [],

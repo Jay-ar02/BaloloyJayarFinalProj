@@ -1,4 +1,9 @@
-<app-post *ngFor = "let post of listOfPosts; let i = index"
-[post]="post"
-[index]="i"    
-></app-post>
+<!-- Display search results -->
+<div *ngFor="let searchResult of searchResults">
+  <app-post [post]="searchResult"></app-post>
+</div>
+
+<!-- Display all posts -->
+<div *ngFor="let post of listOfPosts; let i = index">
+  <app-post [post]="post" [index]="i"></app-post>
+</div>

@@ -12,10 +12,24 @@
       <li class="nav-item active">
         <a class="nav-link" routerLink="/post-list">Home <span class="sr-only"></span></a>
       </li>
+
+
       <li class="nav-item">
         <a class="nav-link" routerLink="/post-add">Create Post</a>
       </li>
+
+      <input [(ngModel)]="searchKeyword" placeholder="Search posts">
+<button (click)="searchPosts()">Search</button>
+
       
+      <!-- <li class="nav-item active">
+        <a class="nav-link" (click)="onSave()">Save</a>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link" (click)="onFetch()">Fetch</a>
+      </li> -->
+
     </ul>
   </div>
 </nav>
