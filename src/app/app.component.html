@@ -2,8 +2,10 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-6">
-      <router-outlet></router-outlet>
-
+      <router-outlet><br>
+        <button class="theme-toggle-btn" (click)="themeService.toggleMode()">Light or Dark Mode</button>
+      </router-outlet>
+      
     </div>
   </div>
 </div>

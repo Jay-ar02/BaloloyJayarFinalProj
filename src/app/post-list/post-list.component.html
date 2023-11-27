@@ -2,8 +2,16 @@
 <div *ngFor="let searchResult of searchResults">
   <app-post [post]="searchResult"></app-post>
 </div>
-
+<button (click)="sortPosts()">Sort Posts</button>
 <!-- Display all posts -->
-<div *ngFor="let post of listOfPosts; let i = index">
+<!-- <div *ngFor="let post of listOfPosts; let i = index">
   <app-post [post]="post" [index]="i"></app-post>
+</div> -->
+
+<div *ngFor="let post of getDisplayedPosts(); let index = index">
+  <app-post [post]="post" [index]="index"></app-post>
 </div>
+
+<br>
+<button (click)="previousPage()">Previous</button>
+<button (click)="nextPage()">Next</button>

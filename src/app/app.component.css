@@ -1,0 +1,14 @@
+.theme-toggle-btn {
+    background-color: #3498db; /* Blue color for the button */
+    color: #fff; /* White text color */
+    padding: 10px 15px; /* Padding for better appearance */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add rounded corners */
+    cursor: pointer; /* Add pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+  }
+  
+  .theme-toggle-btn:hover {
+    background-color: #2980b9; /* Darker blue color on hover */
+  }
+  

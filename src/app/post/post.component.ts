@@ -15,6 +15,7 @@ export class PostComponent implements OnInit{
   @Input() post?: Post;
   commentText: any;
   isHovered = false;
+  showCommentBox = false;
  
   
   constructor(private postService: PostService, private router: Router,  private backEndService: BackEndService)  {
@@ -49,4 +50,7 @@ export class PostComponent implements OnInit{
     console.log(`Selected reaction: ${reaction}`);
   }
   
+  toggleCommentBox(): void {
+    this.showCommentBox = !this.showCommentBox;
+  }
 }

@@ -1,3 +1,4 @@
+
 p {
   color: rgb(68, 68, 68);
   font-size: large;
@@ -8,6 +9,7 @@ p {
 }
 
 /* post.component.css */
+
 
 /* Comment Input and Button Styling */
 .comment-section {
@@ -70,5 +72,30 @@ p {
     background-color: #fff;
   }
   
+  .post-box {
+    border: 1px solid #ddd; /* Border color */
+    padding: 20px; /* Padding around the content */
+    margin: 20px; /* Margin to separate each post box */
+    border-radius: 8px; /* Rounded corners for the box */
+    background-color: #f9f9f9; /* Background color */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle elevation effect */
+    
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+  }
   
+  .interaction-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+
   

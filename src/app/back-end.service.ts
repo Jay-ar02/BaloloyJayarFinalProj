@@ -16,13 +16,13 @@ export class BackEndService {
 
   saveData() {
     const newlistofPost: Post[] = this.postService.getPost();
-    this.http.put('https://sample-db-2b792-default-rtdb.asia-southeast1.firebasedatabase.app/post.json', newlistofPost).subscribe((res) => {
+    this.http.put('https://baloloyfinalproj-default-rtdb.asia-southeast1.firebasedatabase.app/post.json', newlistofPost).subscribe((res) => {
     console.log(res);
     })}
   
 
   fetchData() {
-    return this.http.get<Post[]>('https://sample-db-2b792-default-rtdb.asia-southeast1.firebasedatabase.app/post.json').pipe(
+    return this.http.get<Post[]>('https://baloloyfinalproj-default-rtdb.asia-southeast1.firebasedatabase.app/post.json').pipe(
     tap((newlistofPost: Post[]) => {
     console.log(newlistofPost);
     this.postService.setPosts(newlistofPost);
@@ -32,7 +32,7 @@ export class BackEndService {
 
   updateData(index: number, updatedPost: Post) {
     this.postService.updatePost(index, updatedPost);
-this.http.put(`https://sample-db-2b792-default-rtdb.asia-southeast1.firebasedatabase.app/post/${index}.json`, updatedPost)
+this.http.put(`https://baloloyfinalproj-default-rtdb.asia-southeast1.firebasedatabase.app/post/${index}.json`, updatedPost)
     .subscribe(response => {
         console.log(response);
     });
@@ -40,7 +40,7 @@ this.http.put(`https://sample-db-2b792-default-rtdb.asia-southeast1.firebasedata
 
 deleteData(index: number){
   this.postService.deleteButton(index);
-  this.http.delete(`https://sample-db-2b792-default-rtdb.asia-southeast1.firebasedatabase.app/posts/${index}.json`)
+  this.http.delete(`https://baloloyfinalproj-default-rtdb.asia-southeast1.firebasedatabase.app/posts/${index}.json`)
       .subscribe(response => {
           console.log(response);
       });
@@ -49,7 +49,7 @@ deleteData(index: number){
 addComment(index: number, comment: string) {
   const post = this.postService.getSpecPost(index);
   post.comments.push(comment);
-  this.http.put(`https://sample-db-2b792-default-rtdb.asia-southeast1.firebasedatabase.app/posts/${index}.json`, post)
+  this.http.put(`https://baloloyfinalproj-default-rtdb.asia-southeast1.firebasedatabase.app/posts/${index}.json`, post)
     .subscribe(response => {
       console.log(response);
     });

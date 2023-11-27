@@ -14,13 +14,15 @@ export class PostService{
         //   new Date(),
         //   'https://images.alphacoders.com/132/1328866.png',  
         //    0
-
         // )
           ];
           
           addPost(post: Post) {
             if (this.listOfPosts === null) {
               this.listOfPosts = []; // Initialize the array if it's null
+            }
+            if (!post.author) {
+              post.author = 'Jay-ar Baloloy'; // Set a default author if none is provided
             }
             this.listOfPosts.push(post);
             this.listChangeEvent.emit(this.listOfPosts);
