@@ -6,6 +6,7 @@ import { Subject } from 'rxjs';
 export class PostService{
   listChangeEvent: EventEmitter<Post[]>  = new EventEmitter();
   searchResults = new Subject<Post[]>();
+  newPostEvent: EventEmitter<void> = new EventEmitter();
     listOfPosts: Post[] = [
         // new Post(
         //   'Blog',
@@ -26,6 +27,7 @@ export class PostService{
             }
             this.listOfPosts.push(post);
             this.listChangeEvent.emit(this.listOfPosts);
+            this.newPostEvent.emit();
           }
 
           getPost(){

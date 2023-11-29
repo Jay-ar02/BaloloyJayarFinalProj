@@ -10,6 +10,7 @@ import { PostService } from '../post-service'; // Import PostService
 export class HeaderComponent implements OnInit {
   listOfPosts: any;
   searchKeyword: string;
+  showNotification = false;
 
 
   constructor(
@@ -17,9 +18,6 @@ export class HeaderComponent implements OnInit {
     private postService: PostService // Inject PostService
   ) {
     this.searchKeyword = '';
-  }
-
-  ngOnInit(): void {
   }
 
   onSave() {
@@ -34,5 +32,14 @@ export class HeaderComponent implements OnInit {
 
 searchPosts() {
   this.postService.searchPosts(this.searchKeyword);
+}
+
+ngOnInit(): void {
+  this.postService.newPostEvent.subscribe(() => {
+    this.showNotification = true;
+    setTimeout(() => {
+      this.showNotification = false;
+    }, 3000);
+  });
 }
 }
