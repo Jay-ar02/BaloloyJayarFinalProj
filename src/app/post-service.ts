@@ -7,7 +7,7 @@ export class PostService{
   listChangeEvent: EventEmitter<Post[]>  = new EventEmitter();
   searchResults = new Subject<Post[]>();
   newPostEvent: EventEmitter<void> = new EventEmitter();
-    listOfPosts: Post[] = [
+  listOfPosts: Post[] = [
         // new Post(
         //   'Blog',
         //   'Jay-ar Baloloy',
@@ -16,52 +16,58 @@ export class PostService{
         //   'https://images.alphacoders.com/132/1328866.png',  
         //    0
         // )
-          ];
+        ];
           
-          addPost(post: Post) {
-            if (this.listOfPosts === null) {
-              this.listOfPosts = []; // Initialize the array if it's null
-            }
-            if (!post.author) {
-              post.author = 'Jay-ar Baloloy'; // Set a default author if none is provided
-            }
-            this.listOfPosts.push(post);
-            this.listChangeEvent.emit(this.listOfPosts);
-            this.newPostEvent.emit();
-          }
+  addPost(post: Post) {
+   if (this.listOfPosts === null) {
+    this.listOfPosts = []; // Initialize the array if it's null
+   }
+   if (!post.author) {
+    post.author = 'Jay-ar Baloloy'; // Set a default author if none is provided
+   }
+    this.listOfPosts.push(post);
+    this.listChangeEvent.emit(this.listOfPosts);
+    this.newPostEvent.emit();
+   }
 
-          getPost(){
-            return this.listOfPosts;
-          }
-          deleteButton(index: number){
-            this.listOfPosts.splice(index, 1)
-          }
+   getPost(){
+    return this.listOfPosts;
+   }
+
+   deleteButton(index: number){
+    this.listOfPosts.splice(index, 1)
+   }
           
-          updatePost(index: number, post: Post){
-            this.listOfPosts[index] = post;
-          }
-          getSpecPost(index: number){
-          return this.listOfPosts[index];
-}
-LikePost(index: number){
-this.listOfPosts[index].numberOfLikes += 1;
-}
+   updatePost(index: number, post: Post){
+    this.listOfPosts[index] = post;
+   }
+   
+   getSpecPost(index: number){
+     return this.listOfPosts[index];
+   }
 
-setPosts(newlistofPost: Post[]) {
-  this.listOfPosts = newlistofPost;
-  this.listChangeEvent.emit(newlistofPost);
-}
+   LikePost(index: number){
+     this.listOfPosts[index].numberOfLikes += 1;
+   }
 
-addComment(index: number, comment: string) {
-  if (!this.listOfPosts[index].comments) {
-      this.listOfPosts[index].comments = [];
+   setPosts(newlistofPost: Post[]) {
+    this.listOfPosts = newlistofPost;
+    this.listChangeEvent.emit(newlistofPost);
+   }
+
+   addComment(index: number, comment: string) {
+    if (!this.listOfPosts[index].comments) {
+    this.listOfPosts[index].comments = [];
+    }
+    this.listOfPosts[index].comments.push(comment);
+   }
+
+   searchPosts(keyword: string): void {
+    const results = this.listOfPosts.filter(post => post.title.includes(keyword) || post.description.includes(keyword));
+    this.searchResults.next(results);
+   }
+
+  sortPosts(): void {
+    this.listOfPosts.sort((a: Post, b: Post) => b.title.localeCompare(a.title));
   }
-  this.listOfPosts[index].comments.push(comment);
-}
-
-searchPosts(keyword: string): void {
-  const results = this.listOfPosts.filter(post => post.title.includes(keyword) || post.description.includes(keyword));
-  this.searchResults.next(results);
-}
-
 }

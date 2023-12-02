@@ -16,15 +16,13 @@ export class PostComponent implements OnInit{
   commentText: any;
   isHovered = false;
   showCommentBox = false;
- 
   
-  constructor(private postService: PostService, private router: Router,  private backEndService: BackEndService)  {
-
-   }
+  constructor(private postService: PostService, private router: Router,  private backEndService: BackEndService)  {}
 
   ngOnInit(): void {
     console.log(this.post)
   }
+  
   delete(){
     // this.postService.deleteButton(this.index);
     this.backEndService.deleteData(this.index);

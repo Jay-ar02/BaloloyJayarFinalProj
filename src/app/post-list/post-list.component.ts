@@ -8,6 +8,7 @@ import { BackEndService } from '../back-end.service';
   templateUrl: './post-list.component.html',
   styleUrls: ['./post-list.component.css']
 })
+
 export class PostListComponent implements OnInit {
   listOfPosts: Post[] = [];
   searchResults: Post[] = [];
@@ -20,13 +21,11 @@ export class PostListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.listOfPosts = this.postService.getPost();
     this.backEndService.fetchData().subscribe((post: Post[]) => {
-      this.listOfPosts = post;
-  
-      this.postService.searchResults.subscribe(results => {
-        this.searchResults = results;
-      });
+    this.listOfPosts = post;
+    this.postService.searchResults.subscribe(results => {
+    this.searchResults = results;
+    });
     });
   }
   
@@ -36,8 +35,12 @@ export class PostListComponent implements OnInit {
     return this.listOfPosts.slice(start, end);
   }
 
+  get totalPages(): number {
+    return Math.ceil(this.listOfPosts.length / this.itemsPerPage);
+  }
+
   nextPage(): void {
-    if ((this.currentPage - 1) * this.itemsPerPage < this.listOfPosts.length) {
+    if (this.currentPage < this.totalPages) {
       this.currentPage++;
     }
   }

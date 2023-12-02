@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BackEndService } from '../back-end.service';
 import { PostService } from '../post-service'; // Import PostService
+import { ThemeService } from '../Theme.service';
+import { Post } from '../post.model';
 
 @Component({
   selector: 'app-header',
@@ -12,10 +14,10 @@ export class HeaderComponent implements OnInit {
   searchKeyword: string;
   showNotification = false;
 
-
   constructor(
     private backEndService: BackEndService,
-    private postService: PostService // Inject PostService
+    private postService: PostService, // Inject PostService
+    public themeService: ThemeService
   ) {
     this.searchKeyword = '';
   }
@@ -28,18 +30,24 @@ export class HeaderComponent implements OnInit {
     this.backEndService.fetchData().subscribe(() => {
         this.listOfPosts = this.postService.getPost(); // Access data through PostService
     });
-}
+    }
 
-searchPosts() {
-  this.postService.searchPosts(this.searchKeyword);
-}
+    // Searching
+    searchPosts() {
+    this.postService.searchPosts(this.searchKeyword);
+    }
 
-ngOnInit(): void {
+  ngOnInit(): void {
   this.postService.newPostEvent.subscribe(() => {
-    this.showNotification = true;
-    setTimeout(() => {
-      this.showNotification = false;
-    }, 3000);
+  this.showNotification = true;
+  setTimeout(() => {
+  this.showNotification = false;
+  }, 3000);
   });
-}
+  }
+
+  // Sorting
+  sortPosts(): void {
+  this.postService.sortPosts();
+  }
 }

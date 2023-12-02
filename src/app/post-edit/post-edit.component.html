@@ -1,36 +1,35 @@
 <br>
-
 <h3 *ngIf="editmode == false">Add Post</h3>
-  <h3 *ngIf="editmode == true">Edit Post</h3>
+<h3 *ngIf="editmode == true">Edit Post</h3>
 
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
-   
   <div class="form-row" style="display: flex;">
-      <div class="col-md-4 mb-3">
-        <label for="validationDefault01">Title</label>
-        <input type="text" class="form-control" id="validationDefault01" placeholder="Add title" formControlName='title' required>
-      </div>&nbsp;&nbsp;&nbsp;&nbsp;
-      <div class="col-md-4 mb-3">
-        <label for="validationDefault02">Image Path</label>
-        <input type="text" class="form-control" id="validationDefault02" placeholder="Add image path" formControlName='imgPath' required>
-        <img src="{{ form.value.imgPath }}" alt="">
+    <div class="col-md-4 mb-3">
+      <label for="validationDefault01">Title</label>
+      <input type="text" class="form-control" id="validationDefault01" placeholder="Add title" formControlName='title' required>
+    </div>&nbsp;&nbsp;&nbsp;&nbsp;
+      
+  <div class="col-md-4 mb-3">
+    <label for="validationDefault02">Image Path</label>
+      <input type="text" class="form-control" id="validationDefault02" placeholder="Add image path" formControlName='imgPath' required>
+      <img src="{{ form.value.imgPath }}" alt="">
       </div>&nbsp;
     </div>
-    <div class="form-row" style="display: flex;">
-      <div class="col-md-9 mb-2">
-        <label for="validationDefault03">Description</label>
-        <input type="text" class="form-control" id="validationDefault03" placeholder="Add Description" formControlName='description' required>
-      </div>&nbsp;
+    
+  <div class="form-row" style="display: flex;">
+    <div class="col-md-9 mb-2">
+      <label for="validationDefault03">Description</label>
+      <input type="text" class="form-control" id="validationDefault03" placeholder="Add Description" formControlName='description' required>
+    </div>&nbsp;
       
-      
-      
-    </div>
-    <div class="form-group">
-      <div class="form-check">
+  </div>
+  <div class="form-group">
+  <div class="form-check">
        
-        
-      </div>
-    </div>
-    <button class="btn btn-primary" type="submit">Save </button>&nbsp;&nbsp;
-    <button class="btn btn-danger" type="reset">Clear</button>
-  </form>
+  </div>
+  </div>
+    
+  <button class="btn btn-primary" type="submit">Save </button>&nbsp;&nbsp;
+  <button class="btn btn-danger" type="reset">Clear</button>
+
+</form>

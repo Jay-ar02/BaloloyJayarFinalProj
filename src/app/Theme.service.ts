@@ -11,4 +11,8 @@ export class ThemeService {
     document.body.classList.toggle('dark-mode', this.darkMode);
     document.body.classList.toggle('light-mode', !this.darkMode);
   }
+
+  get isDarkMode(): boolean {
+    return this.darkMode;
+  }
 }

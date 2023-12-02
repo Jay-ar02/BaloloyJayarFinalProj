@@ -1,16 +1,41 @@
-/* Add some basic styling to the buttons */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 button {
-    padding: 10px 15px;
-    margin: 5px;
-    background-color: #3498db; /* Blue color */
-    color: #fff; /* White text */
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-  
-  /* Change button color on hover for a subtle effect */
-  button:hover {
-    background-color: #2980b9; /* Darker blue color on hover */
-  }
+  padding: 10px;
+  margin: 5px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+/* .page-indicator {
+  margin-top: 10px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+.page-indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
   

@@ -10,6 +10,7 @@ import { BackEndService } from '../back-end.service'; // Import BackEndService
   templateUrl: './post-edit.component.html',
   styleUrls: ['./post-edit.component.css']
 })
+
 export class PostEditComponent implements OnInit {
   form!: FormGroup;
   index: number = 0;
@@ -30,13 +31,10 @@ export class PostEditComponent implements OnInit {
     this.actRoute.params.subscribe((params: Params) => {
       if (params['index']) {
         this.index = +params['index'];
-
         const post = this.postService.getSpecPost(this.index);
-
         editTitle = post.title;
         editDescription = post.description;
         editImgPath = post.imgPath;
-
         this.editmode = true;
       }
     });
@@ -46,13 +44,12 @@ export class PostEditComponent implements OnInit {
       imgPath: new FormControl(editImgPath, [Validators.required]),
       description: new FormControl(editDescription, [Validators.required])
     });
-  }
+    }
 
   onSubmit() {
     const title = this.form.value.title;
     const imgPath = this.form.value.imgPath;
     const description = this.form.value.description;
-
     const post: Post = new Post(title, '', description, new Date(), imgPath, 0);
     if (this.editmode) {
       this.postService.updatePost(this.index, post);
@@ -61,7 +58,6 @@ export class PostEditComponent implements OnInit {
       this.postService.addPost(post);
       this.backEndService.saveData();
     }
-
-    this.router.navigate(['post-list']);
-  }
+      this.router.navigate(['post-list']);
+    }
 }
