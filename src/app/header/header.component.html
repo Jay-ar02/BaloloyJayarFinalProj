@@ -3,7 +3,7 @@
 
 <!-- Add this link tag to your index.html or include FontAwesome in another way -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
+<div *ngIf="user$ | async">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   
   <button *ngIf="showNotification" class="notification btn btn-info text-center">
@@ -47,3 +47,4 @@
     </ul>
   </div>
 </nav>
+</div>
