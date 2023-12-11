@@ -1,0 +1,115 @@
+
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-picture img {
+    width: 100px; /* Adjust the size as needed */
+    height: 100px; /* Adjust the size as needed */
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.profile-info h2 {
+    margin: 0;
+}
+
+.profile-content {
+    width: 70%;
+  }
+
+/* Add additional styling based on your design */
+
+.post-box {
+    border: 1px solid #ddd; /* Border color */
+    padding: 20px; /* Padding around the content */
+    margin: 20px; /* Margin to separate each post box */
+    border-radius: 8px; /* Rounded corners for the box */
+    background-color: #f9f9f9; /* Background color */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle elevation effect */
+    margin-bottom: 20px; /* Add some space between posts */
+    width: 65%;
+  }
+
+  /* Comment Input and Button Styling */
+.comment-section {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+    
+  .comment-input input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+    font-size: 14px;
+  }
+    
+  .comment-input button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+    
+  /* Comment Box Styling */
+  .comment-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Add spacing between comments */
+  }
+    
+  .comment-box {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+  }
+    
+  .comment-text {
+    font-size: 14px;
+    color: #333;  /* Add any other styles you desire for the comment text */
+  }
+    
+  .facebook-like-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust as needed to center vertically */
+  }
+    
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+  }
+    
+  .interaction-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .row{
+    display: flex;
+    justify-content: center;
+  }

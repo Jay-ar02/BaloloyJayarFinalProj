@@ -4,6 +4,7 @@ import { PostService } from '../post-service';
 import { Post } from '../post.model';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { BackEndService } from '../back-end.service'; // Import BackEndService
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-post-edit',
@@ -20,7 +21,8 @@ export class PostEditComponent implements OnInit {
     private postService: PostService,
     private router: Router,
     private actRoute: ActivatedRoute,
-    private backEndService: BackEndService // Inject BackEndService
+    private backEndService: BackEndService, // Inject BackEndService
+    private authService: AuthService 
   ) {}
 
   ngOnInit(): void {
@@ -50,7 +52,9 @@ export class PostEditComponent implements OnInit {
     const title = this.form.value.title;
     const imgPath = this.form.value.imgPath;
     const description = this.form.value.description;
-    const post: Post = new Post(title, '', description, new Date(), imgPath, 0);
+    const user = this.authService.getCurrentUser();
+const postedBy = user?.email || 'anonymous';
+    const post: Post = new Post(title, '', description, new Date(), imgPath, 0, postedBy);
     if (this.editmode) {
       this.postService.updatePost(this.index, post);
       this.backEndService.updateData(this.index, post);

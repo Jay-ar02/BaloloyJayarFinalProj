@@ -17,6 +17,7 @@ import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AuthGuard } from './auth.guard';
 import { NoAuthGuard } from './noauth.guard';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: 'post-list', component: PostListComponent, canActivate: [AuthGuard] },
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'post-edit/:index', component: PostEditComponent, canActivate: [AuthGuard] },
   { path: 'login', component: SignInComponent, canActivate: [NoAuthGuard] }, // use NoAuthGuard
   { path: 'signup', component: SignUpComponent, canActivate: [NoAuthGuard] }, // use NoAuthGuard
+   { path: 'profile', component: ProfileComponent },
   
 ];
 
@@ -39,7 +41,8 @@ const routes: Routes = [
     PostListComponent,
     RecycleBinComponent,
     SignUpComponent,
-    SignInComponent
+    SignInComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,7 @@ export class Post{
         public dateCreated: Date,
         public imgPath: string,
         public numberOfLikes: number,
+        public postedBy: String,
         public comments: string[] = [] ){
         }
 }

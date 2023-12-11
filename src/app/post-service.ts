@@ -1,6 +1,7 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { Post } from './post.model';
 import { Subject } from 'rxjs';
+import { AuthService } from './auth.service';
 
 @Injectable({ providedIn: 'root' })
 export class PostService{
@@ -17,18 +18,19 @@ export class PostService{
         //    0
         // )
         ];
+
+ constructor(private authService: AuthService) { }
           
-  addPost(post: Post) {
-   if (this.listOfPosts === null) {
+ addPost(post: Post) {
+  if (this.listOfPosts === null) {
     this.listOfPosts = []; // Initialize the array if it's null
-   }
-   if (!post.author) {
-    post.author = 'Jay-ar Baloloy'; // Set a default author if none is provided
-   }
-    this.listOfPosts.push(post);
-    this.listChangeEvent.emit(this.listOfPosts);
-    this.newPostEvent.emit();
-   }
+  }
+  const user = this.authService.getCurrentUser();
+  post.author = user?.email || 'anonymous';
+  this.listOfPosts.push(post);
+  this.listChangeEvent.emit(this.listOfPosts);
+  this.newPostEvent.emit();
+}
 
    getPost(){
     return this.listOfPosts;
@@ -69,5 +71,9 @@ export class PostService{
 
   sortPosts(): void {
     this.listOfPosts.sort((a: Post, b: Post) => b.title.localeCompare(a.title));
+  }
+
+  getPostsByUser(user: any) {
+    return this.listOfPosts.filter(post => post.author === user.email);
   }
 }

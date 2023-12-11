@@ -3,6 +3,7 @@ import { Post } from '../post.model';
 import { PostService } from '../post-service'; 
 import { Router } from '@angular/router';
 import { BackEndService } from '../back-end.service'; // Import BackEndService
+import { AuthService } from '../auth.service';
 
 
 @Component({
@@ -16,10 +17,12 @@ export class PostComponent implements OnInit{
   commentText: any;
   isHovered = false;
   showCommentBox = false;
+  user: any;
   
-  constructor(private postService: PostService, private router: Router,  private backEndService: BackEndService)  {}
+  constructor(private postService: PostService, private router: Router,  private backEndService: BackEndService, private authService: AuthService)  {}
 
   ngOnInit(): void {
+    this.user = this.authService.getCurrentUser();
     console.log(this.post)
   }
   

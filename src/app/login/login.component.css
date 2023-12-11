@@ -1,12 +1,19 @@
 /* signup.component.css */
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
 .login-box {
     max-width: 400px;
-    margin: auto;
+  
     padding: 20px;
     background: #f7f7f7;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
   }
   
   .user-box {
@@ -74,5 +81,10 @@
   
   a:hover {
     text-decoration: underline;
+  }
+
+  .row{
+    display: flex;
+    justify-content: center;
   }
   

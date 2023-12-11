@@ -1,12 +1,12 @@
 export const environment = {
     production: false,
     firebase: {
-        apiKey: "AIzaSyDL8jU1AGlBh2Ya1aI4K8TM0dw9Ex8lBno",
-        authDomain: "baloloyfinalproj.firebaseapp.com",
-        databaseURL: "https://baloloyfinalproj-default-rtdb.asia-southeast1.firebasedatabase.app",
-        projectId: "baloloyfinalproj",
-        storageBucket: "baloloyfinalproj.appspot.com",
-        messagingSenderId: "1093101227871",
-        appId: "1:1093101227871:web:c75d4337ae32f73ee2f0ea"
+        apiKey: "AIzaSyB1rNPl5oQRL2gtA6RunLZUGmOiXFPr-To",
+  authDomain: "baloloyfinaltest.firebaseapp.com",
+  databaseURL: "https://baloloyfinaltest-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "baloloyfinaltest",
+  storageBucket: "baloloyfinaltest.appspot.com",
+  messagingSenderId: "17609161719",
+  appId: "1:17609161719:web:ed61e575e0162c30a48cf2"
     }
   };
