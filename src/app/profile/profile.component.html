@@ -1,16 +1,21 @@
 <div class="center-container">
 <div *ngIf="currentUser" class="profile-container">
-    <div class="profile-header">
-        <div class="profile-picture">
-            <!-- Add profile picture here -->
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHvZ0pbf4bXvAJgVZVuRQqrNWnoWl96cV6wQ&usqp=CAU" alt="Profile Picture">
-        </div>
-        <div class="profile-info">
-            <h2>{{ currentUser.displayName }}</h2>
-            <p>{{ currentUser.email }}</p>
-            <!-- Add other profile information as needed -->
-        </div>
+  <div class="profile-header">
+    <div class="profile-picture">
+      <!-- Add profile picture here -->
+      <label for="fileInput">
+        <img [src]="profilePictureUrl" alt="Profile Picture">
+        <input type="file" id="fileInput" (change)="onFileSelected($event)" />
+      </label>
+      <button (click)="uploadFile()">Upload</button>
+    </div><br>
+    <div class="profile-info">
+      <h2>{{ currentUser.displayName }}</h2>
+      <p>{{ currentUser.email }}</p>
+      <!-- Add other profile information as needed -->
     </div>
+  </div>
+  
     <div class="profile-content">
       <div class="row">
         <!-- Add other profile content here, e.g., user posts, activities, etc. -->

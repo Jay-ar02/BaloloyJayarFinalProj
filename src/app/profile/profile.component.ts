@@ -12,7 +12,8 @@ export class ProfileComponent implements OnInit {
   currentUser: any;
   posts: any[] = [];
   commentText: string = ''; // Add this line
-
+  profilePictureUrl: string = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHvZ0pbf4bXvAJgVZVuRQqrNWnoWl96cV6wQ&usqp=CAU'; // default image
+  selectedFile: File | null = null;
   constructor(
     private authService: AuthService,
     private storage: AngularFireStorage,
@@ -21,6 +22,13 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentUser = this.authService.getCurrentUser();
+    if (this.currentUser) {
+      this.authService.fetchUserData(this.currentUser.uid).then(userData => {
+        if (userData && userData.profilePictureUrl) {
+          this.profilePictureUrl = userData.profilePictureUrl;
+        }
+      });
+    }
     this.posts = this.postService.getPostsByUser(this.currentUser);
   }
 
@@ -32,13 +40,36 @@ export class ProfileComponent implements OnInit {
     // Add your addComment logic here
   }
 
-  public onFileSelected(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    
-    if (input.files && input.files.length > 0) {
-      const file: File = input.files[0];
-      const filePath = `profile-pictures/${this.currentUser.uid}`;
-      const task = this.storage.upload(filePath, file);
+  // Add a new property to store the selected file
+
+onFileSelected(event: Event) {
+  const inputElement = event.target as HTMLInputElement;
+  if (inputElement.files && inputElement.files.length > 0) {
+    this.selectedFile = inputElement.files[0];
+
+    if (this.selectedFile) {
+      const reader = new FileReader();
+
+      reader.onload = (e) => {
+        this.profilePictureUrl = (e.target as FileReader).result as string;
+      };
+
+      reader.readAsDataURL(this.selectedFile);
     }
   }
+}
+
+// New method to upload the file
+async uploadFile() {
+  if (this.selectedFile) {
+    try {
+      const url = await this.authService.uploadProfilePicture(this.selectedFile);
+      console.log('File uploaded successfully. URL:', url);
+    } catch (error) {
+      console.error('Error during file upload:', error);
+    }
+  } else {
+    console.log('No file selected');
+  }
+}
 }

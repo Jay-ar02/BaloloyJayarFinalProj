@@ -113,3 +113,45 @@
     display: flex;
     justify-content: center;
   }
+
+  .profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f2f5;
+    padding: 20px;
+  }
+  
+  .profile-picture {
+    margin-right: 20px;
+  }
+  
+  .profile-picture label {
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .profile-picture img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .profile-picture input[type="file"] {
+    display: none;
+  }
+  
+  button {
+    background-color: #1877f2;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Style the button to look like Facebook's blue */
+  button:hover {
+    background-color: #0d66c2;
+  }
+  
