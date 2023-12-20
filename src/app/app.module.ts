@@ -20,6 +20,7 @@ import { NoAuthGuard } from './noauth.guard';
 import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/post-list', pathMatch: 'full' },
   { path: 'post-list', component: PostListComponent, canActivate: [AuthGuard] },
   { path: 'post-add', component: PostEditComponent, canActivate: [AuthGuard] },
   { path: 'authentication', component: AuthComponent },
@@ -27,8 +28,7 @@ const routes: Routes = [
   { path: 'post-edit/:index', component: PostEditComponent, canActivate: [AuthGuard] },
   { path: 'login', component: SignInComponent, canActivate: [NoAuthGuard] }, // use NoAuthGuard
   { path: 'signup', component: SignUpComponent, canActivate: [NoAuthGuard] }, // use NoAuthGuard
-   { path: 'profile', component: ProfileComponent },
-  
+  { path: 'profile', component: ProfileComponent },
 ];
 
 @NgModule({

@@ -18,11 +18,13 @@ export class HeaderComponent implements OnInit {
   searchKeyword: string;
   showNotification = false;
   user$ = this.authService.user$;
+  // Add this variable in your HeaderComponent class in header.component.ts
+showHistory = false;
 
 
   constructor(
     private backEndService: BackEndService,
-    private postService: PostService, // Inject PostService
+    public postService: PostService, // Make postService public
     public themeService: ThemeService,
     private authService: AuthService, 
     private router: Router

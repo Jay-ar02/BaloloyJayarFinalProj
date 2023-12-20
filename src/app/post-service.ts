@@ -8,6 +8,7 @@ export class PostService{
   listChangeEvent: EventEmitter<Post[]>  = new EventEmitter();
   searchResults = new Subject<Post[]>();
   newPostEvent: EventEmitter<void> = new EventEmitter();
+  searchHistory: any[] = []; // Define the searchHistory property
   listOfPosts: Post[] = [
         // new Post(
         //   'Blog',
@@ -76,4 +77,9 @@ export class PostService{
   getPostsByUser(user: any) {
     return this.listOfPosts.filter(post => post.author === user.email);
   }
+
+  // Add this method in your PostService class in post-service.ts
+removeSearchHistory(index: number): void {
+  this.searchHistory.splice(index, 1);
+}
 }
